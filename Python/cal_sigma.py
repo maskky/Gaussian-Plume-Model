@@ -131,4 +131,4 @@ def cal_sigma(windType, distance):
     return (sigma_z, sigma_y)
 
 
-print(cal_sigma("D", 0.5))
+# print(cal_sigma("D", 0.5))
