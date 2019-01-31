@@ -9,6 +9,7 @@ def cal_gaussian_func(x, y, z, Q, u, sigma_z, sigma_y, h):
 
     result = solution_1 * (exp_1 + exp_2) * exp_3
 
+    # result need to format to readable decimal
     formatted = '{0:.10f}'.format(result)
     print(formatted)
 
