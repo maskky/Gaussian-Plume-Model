@@ -13,7 +13,6 @@ def main(windDirection, distance, la, lg, Q, u, h):
     # windDirection = Direction of wind, examples N(Nort), E(East)
 
     windType = cal_wind_type(u)
-    print("WindType :", windType)
     
     sigma = cal_sigma(windType, distance)
     sigma_z = sigma[0]

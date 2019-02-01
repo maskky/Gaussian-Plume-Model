@@ -10,6 +10,6 @@ def cal_gaussian_func(x, y, Q, u, sigma_z, sigma_y, h):
     exp_2 = np.exp(((-1) * (CONST_Z + h)**2) / (2 * (sigma_z**2)))
     exp_3 = np.exp((-1) * (y**2) / (2 * (sigma_y**2)))
 
-    result = solution_1 * (exp_1 + exp_2) * exp_3x
+    result = solution_1 * (exp_1 + exp_2) * exp_3
 
     return result
