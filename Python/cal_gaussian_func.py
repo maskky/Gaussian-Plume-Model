@@ -10,13 +10,6 @@ def cal_gaussian_func(x, y, Q, u, sigma_z, sigma_y, h):
     exp_2 = np.exp(((-1) * (CONST_Z + h)**2) / (2 * (sigma_z**2)))
     exp_3 = np.exp((-1) * (y**2) / (2 * (sigma_y**2)))
 
-    result = solution_1 * (exp_1 + exp_2) * exp_3
-
-    # result need to format to .10f decimal
-    # formatted = '{0:.10f}'.format(result)
-    # print(formatted)
+    result = solution_1 * (exp_1 + exp_2) * exp_3x
 
     return result
-
-# cal_gaussian_func(500, 0, 10, 6, 18.3, 36.1, 50)
-    

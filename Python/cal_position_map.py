@@ -4,9 +4,11 @@ import json
 
 def cal_position_map(la, lg, windDirection, sigma_z, sigma_y, distance, Q, u, h):
     position = []
-
+    
+    # Calculate standard gaussin plume model
     gaussian = getGaussian(distance, Q, u, h, sigma_z, sigma_y)
 
+    # Check Wind Direction to calculate Latitute, Longtitude
     if (windDirection == "N"):
         plot_list = north(distance) 
     if (windDirection == "NE"):
@@ -24,6 +26,7 @@ def cal_position_map(la, lg, windDirection, sigma_z, sigma_y, distance, Q, u, h)
     if (windDirection == "NW"):
         plot_list = north_west(distance) 
 
+    # Fusion Gaussian and la,long of Google Maps
     for i in range(len(plot_list)):
         buffer = la + (plot_list[i][1]/111111), lg + (plot_list[i][0]/111111), gaussian[i]
         position.append(buffer)
@@ -114,5 +117,3 @@ def south_east(distance):
                         buffer = i, -j
                         alist.append(buffer)
         return alist
-    
-# cal_position_map(13.729960, 100.778602, cal_sigma("D", 0.5)[0], cal_sigma("D", 0.5)[1])
