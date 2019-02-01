@@ -1,7 +1,6 @@
 def cal_wind_type(windSpeed):
 
     # WindSpeed need to be m/s unit and must be positive number
-    # windSpeed = 3.05556
 
     # Default WindType
     windType = ""
