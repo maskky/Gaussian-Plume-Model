@@ -3,6 +3,7 @@ import numpy as np
 def cal_sigma(windType, distance):
 
     # WindType calculate from cal_wind_type.py
+    distance = distance/1000
     # Distance is a interested distance in km(kilometer) unit and must be have less than 2 decimal
 
     # a, b, c, d variable is a variable in "Pasquill Stability Category" 
@@ -129,6 +130,3 @@ def cal_sigma(windType, distance):
     sigma_y = 465.11628 * distance * np.tan(theta)
 
     return (sigma_z, sigma_y)
-
-
-# print(cal_sigma("D", 0.5))

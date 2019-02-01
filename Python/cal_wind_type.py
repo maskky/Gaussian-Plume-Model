@@ -1,9 +1,8 @@
-def cal_wind_type():
+def cal_wind_type(windSpeed):
 
     # WindSpeed need to be m/s unit and must be positive number
-    windSpeed = 3.05556
-    # WindDirection (N, NE, E, SE, S, SW, W, NW) Example NE:North-East
-    windDirection = "NE"
+    # windSpeed = 3.05556
+
     # Default WindType
     windType = ""
 
@@ -14,9 +13,9 @@ def cal_wind_type():
         windType = "B"
     elif (windSpeed >= 3 and windSpeed < 5):
         windType = "C"
-    elif (windSpeed >= 5 and windSpeed < 6):
+    elif (windSpeed >= 5 and windSpeed < 7):
         windType = "D"
     else:
         windType = "E"
     
-    return (windType, windDirection)
+    return (windType)
