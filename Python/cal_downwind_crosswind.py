@@ -21,5 +21,3 @@ def cal_downwind_crosswind(x, y, u, windDirection):
     crosswind = np.sin(subtended) * hypotenuse
 
     return (downwind, crosswind)
-
-print(cal_downwind_crosswind(-2500, -2500, 1.5, 47.26369829))
