@@ -19,5 +19,5 @@ def main(windDirection, distance, la, lg, Q, u, h):
     sigma_y = sigma[1]
 
     position = cal_position_map(la, lg, windDirection, sigma_z, sigma_y, distance, Q, u, h)
-
-main("E", 500, 13.729960, 100.778602, 10, 6, 50)
+    print(position)
+main("E", 100, 13.729960, 100.778602, 10, 6, 50)
