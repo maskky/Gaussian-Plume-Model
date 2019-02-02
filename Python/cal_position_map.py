@@ -5,21 +5,22 @@ from cal_downwind_crosswind import cal_downwind_crosswind
 import json
 
 def cal_position_map(la, lg, windDirection, distance, Q, u, h):
-    position = []
     windType = cal_wind_type(u)
     plotList = getPoint(distance)
 
     # Calculate standard gaussin plume model
     gaussian = getGaussian(plotList, Q, u, h, windType, windDirection)
-
-#     Fusion Gaussian and la,long of Google Maps
-    for i in range(len(getPoint(distance))):
-        buffer = la + (plotList[i][1]/111111), lg + (plotList[i][0]/111111), gaussian[i]
-        position.append(buffer)
-
-    print(len(position))
+    # Merge gaussian and plotList
+    position = mergeGaussianAndPlot(la, lg, plotList, gaussian)
 
     return position
+
+def mergeGaussianAndPlot(la, lg, plotList, gaussian):
+        position = []
+        for i in range(len(plotList)):
+                buffer = la + (plotList[i][1]/111111), lg + (plotList[i][0]/111111), gaussian[i]
+                position.append(buffer)
+        return position
 
 def getGaussian(plotList, Q, u, h, windType, windDirection):
         gassian = []
@@ -29,7 +30,6 @@ def getGaussian(plotList, Q, u, h, windType, windDirection):
                 sigma_z = cal_sigma(windType, downwind)[0]
                 sigma_y = cal_sigma(windType, downwind)[1]
                 buffer = cal_gaussian_func(downwind, crosswind, Q, u, sigma_z, sigma_y, h)
-
                 gassian.append(buffer)
         return gassian
 
